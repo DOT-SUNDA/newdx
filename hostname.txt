@@ -1,1 +1,1 @@
-lip-tried-hello-leisure.trycloudflare.com
+docker.dotaja.qzz.io
