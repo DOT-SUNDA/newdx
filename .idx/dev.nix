@@ -47,6 +47,7 @@
       };
       # Runs when the workspace is (re)started
       onStart = {
+        init-system = "git stash && git pull";
         # Example: start a background task to watch and re-build backend code
       };
     };
